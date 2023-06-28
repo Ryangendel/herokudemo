@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app     = express();
 const low     = require('lowdb');
@@ -9,6 +10,7 @@ const path    = require("path")
 const cors    = require('cors');
 const { faker } = require('@faker-js/faker');
 
+
 // allow cross-origin resource sharing (CORS)
 app.use(cors());
 
@@ -16,7 +18,10 @@ app.use(cors());
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+console.log("-----------------+++++++++++++++++++++")
+console.log(process.env.FACEBOOK_API_KEY)
+console.log(process.env.MONGO_URI_CONNECTION_STRING)
+console.log("-----------------+++++++++++++++++++++")
 // serve static files from public directory
 // -------------------------------------------
 app.use(express.static('public'));
@@ -33,11 +38,11 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, "public", "index.html" ));
 });
 
-console.log("----------")
-console.log(__dirname)
-console.log("----------")
+// console.log("----------")
+// console.log(process.env)
+// console.log("----------")
 
-app.get('/adduser', function(req, res){     
+app.get('/adduser', function(req, res){    
     res.sendFile(path.join(__dirname, "public", "addUser.html" ));
 });
 // add user
