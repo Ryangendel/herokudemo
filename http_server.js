@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 console.log("-----------------+++++++++++++++++++++")
 console.log(process.env.FACEBOOK_API_KEY)
 console.log(process.env.MONGO_URI_CONNECTION_STRING)
+console.log(process.env.NEWSOMETHING)
 console.log("-----------------+++++++++++++++++++++")
 // serve static files from public directory
 // -------------------------------------------
